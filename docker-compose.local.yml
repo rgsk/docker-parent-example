@@ -1,0 +1,18 @@
+version: '3.8'
+services:
+  state-machine-server-local:
+    build:
+      context: './state-machine'
+      dockerfile: 'Dockerfile.local'
+    volumes:
+      - ./state-machine:/opt/www
+      - /opt/www/node_modules
+      - /opt/www/dist
+    ports:
+      - '8006:8006'
+    env_file:
+      - ./env/local/state-machine.env
+
+networks:
+  default:
+    name: parent-local

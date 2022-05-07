@@ -1,0 +1,12 @@
+version: '3.8'
+services:
+  state-machine-server:
+    build: './state-machine'
+    ports:
+      - '8005:8005'
+    env_file:
+      - ./env/test/state-machine.env
+
+networks:
+  default:
+    name: parent
